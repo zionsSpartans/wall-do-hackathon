@@ -110,3 +110,4 @@ mongo_data
 walldo_py/walldo/walldodb/configbd.py
 mongodb/mongocreds.env
 elasticsearch/elastic_data
+vagrantHosts/.vagrant
