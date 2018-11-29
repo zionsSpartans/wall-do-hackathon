@@ -4,14 +4,16 @@ from configbd import conn
 bd = conn()
 score = bd.puntuaciones
 
-# Objeto temporal para pruebas
+# Objetos temporales para pruebas
 detectedip = {"ip": "10.0.13.1", "score": 35}
+badip = {"ip": "10.0.13.1", "score": 10}
+niceip = {"ip": "10.0.13.1", "score": -5}
 
 def insert_score(detectedip):
   # Insert del documento en la tabla puntuaciones
   score.insert_one(detectedip)
 
-
+def
 
 
 
