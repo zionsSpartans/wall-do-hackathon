@@ -1,17 +1,14 @@
-from elasticsearch import Elasticsearch
+from walldodb import update_score
 
 def queryauth(doc):
-    #print(doc['_source']['system'])
-
     try:
-        if  doc['_source']['system']['auth']['ssh']['event'] == "Accepted":
-            print("Accepted")
-        if doc['_source']['system']['auth']['ssh']['event'] == "Failed":
-            print("Failed")
-    except Exception as e:
-        print(e)
-    #    print("Vacio")
-    #if  doc['_source']['system']['auth']['ssh']['event'] == "Accepted":
-    #    print("Accepted")
-    #if doc['_source']['system']['auth']['ssh']['event'] == "Failed":
-    #print("Failed")
+        ssh_event = doc['_source']['system']['auth']['ssh']['event']
+        if  ssh_event == "Accepted":
+            ssh_ip = doc['_source']['system']['auth']['ssh']['ip']
+            update_score(ssh_ip, -10)
+        elif ssh_event == "Failed":
+            ssh_ip = doc['_source']['system']['auth']['ssh']['ip']
+            update_score(ssh_ip, 20)
+    except:
+        print("")
+
