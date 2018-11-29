@@ -3,7 +3,7 @@
 import sys
 sys.path.insert(0, '/root/wall-do-hackathon/walldo_py/walldo/walldodb')
 
-import walldodb.py
+import walldodb
 
 def queryauth(doc):
     try:
