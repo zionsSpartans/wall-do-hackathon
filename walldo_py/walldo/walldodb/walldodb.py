@@ -9,8 +9,6 @@ score = bd.puntuaciones
 #badip = {"ip": "10.0.13.1", "score": 10}
 #niceip = {"ip": "10.0.13.1", "score": -5}
 
-
-
 def update_score(ip_frommodule):
   # Recuperamos info de BBDD
   ip_indb = score.find_one({"ip": ip_frommodule["ip"]})
