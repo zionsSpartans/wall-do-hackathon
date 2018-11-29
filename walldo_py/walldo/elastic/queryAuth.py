@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, '../walldodb/')
+sys.path.insert(0, '/root/wall-do-hackathon/walldo_py/walldo/walldodb')
 
 import walldodb.py
 
