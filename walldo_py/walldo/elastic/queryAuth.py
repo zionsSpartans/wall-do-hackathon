@@ -1,11 +1,11 @@
 from elasticsearch import Elasticsearch
 
 def queryauth(doc):
-    ssh_event = doc['_source']['system']['auth']['ssh']['event']
+    print(doc['_source']['system'])
 
-    if ssh_event is not None:
-        print("Vacio")
-    if  ssh_event == "Accepted":
-        print("Accepted")
-    if ssh_event == "Failed":
-        print("Failed")
+    #if ssh_event is None:
+    #    print("Vacio")
+    #if  doc['_source']['system']['auth']['ssh']['event'] == "Accepted":
+    #    print("Accepted")
+    #if doc['_source']['system']['auth']['ssh']['event'] == "Failed":
+    #print("Failed")
