@@ -5,19 +5,19 @@ bd = conn()
 score = bd.puntuaciones
 
 # Objetos temporales para pruebas
-detectedip = {"ip": "10.0.13.1", "score": 35}
+detectedip = { "ip": "10.0.13.1", "score": 35 }
 badip = {"ip": "10.0.13.1", "score": 10}
 niceip = {"ip": "10.0.13.1", "score": -5}
 
-# Insert simple
-def simple_insert_score(detectedip):
-  # Insert del documento en la tabla puntuaciones
-  score.insert_one(detectedip)
+
 
 def update_score(detectedip):
-  ip_tofind = detectedip[2]
-  score.find_one()
-
+  # Recuperamos info de BBDD
+  ip_indb = score.find_one({"ip": detectedip["ip"]})
+  new_score = ip_indb["score"] + detectedip["score"]
+  print(ip_indb)
+  score.update_one({"ip": detectedip["ip"]}, { "$set": { "score": new_score }})
+  print(score.find_one({"ip": detectedip["ip"]}))
 
 
 
