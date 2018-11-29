@@ -1,0 +1,14 @@
+from pymongo import MongoClient
+import urllib.parse
+
+bd_user = urllib.parse.quote_plus('user')
+bd_pass = urllib.parse.quote_plus('pass')
+host = "mongo"
+database = "walldodb"
+
+def conn():
+  client = MongoClient('mongodb://%s:%s@%s' % (bd_user, bd_pass, host))
+  db = client[database]
+  return db
+
+
