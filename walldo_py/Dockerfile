@@ -11,8 +11,8 @@ COPY ./walldo /walldo
 
 WORKDIR /walldo
 
-# Durante el desarrollo arrancar con:
-#   docker run --rm -it -v ${PWD}/walldo:/walldo walldopy /bin/sh
+# Durante el desarrollo generar imagen y arrancar con:
+#   docker run --rm -it -v ${PWD}/walldo:/walldo --entrypoint "/bin/sh"  walldotestting
 
 # ENTRYPOINT temporal
 ENTRYPOINT ["/bin/sleep","10000000000000000"]
