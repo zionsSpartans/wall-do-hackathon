@@ -1,4 +1,6 @@
-from ..walldodb import update_score
+#from ..walldodb import update_score
+import sys.path.append('../walldodb/')
+import update_score
 
 def queryauth(doc):
     try:
