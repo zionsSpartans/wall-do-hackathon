@@ -6,9 +6,13 @@ bd_pass = urllib.parse.quote_plus('pass')
 host = "mongo"
 database = "walldodb"
 
+
+# Conector a BBDD mongo - PDTE Añadir comprobación de si existe la BBDD y si no la crea
 def conn():
-  client = MongoClient('mongodb://%s:%s@%s' % (bd_user, bd_pass, host))
-  db = client[database]
-  return db
-
-
+  try:
+    client = MongoClient('mongodb://%s:%s@%s' % (bd_user, bd_pass, host))
+    db = client[database]
+  except Exception as e: print(e)
+  else:
+    #print("Conectado")
+    return db
