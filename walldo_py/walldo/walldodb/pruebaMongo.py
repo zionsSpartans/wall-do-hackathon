@@ -3,6 +3,6 @@ from configbd import conn
 bd = conn()
 
 
-out = bd.posts.find_one()
+out = bd.puntuaciones.find_one()
 
 print(out)
