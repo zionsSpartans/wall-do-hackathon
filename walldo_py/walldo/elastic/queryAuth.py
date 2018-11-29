@@ -1,4 +1,4 @@
-from walldodb.walldodb import update_score
+from ..walldodb.walldodb import update_score
 
 def queryauth(doc):
     try:
