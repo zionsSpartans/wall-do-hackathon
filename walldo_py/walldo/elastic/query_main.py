@@ -1,12 +1,7 @@
-import elasticsearch.helpers
 import time
-
-from elasticsearch import Elasticsearch
 from queryAuth import queryauth
+from elasticconfig import es
 
-elasticSource = elasticsearch.Elasticsearch([{"host": "localhost", "port": 9200}])
-elasticDestination = elasticsearch.Elasticsearch([{"host": "localhost", "port": 9200}])
-es = Elasticsearch()
 res = es.search(index="filebeat*", body={"query": {"match_all": {}}})
 # print de documentos para las pruebas
 print("%d documents found" % res['hits']['total'])

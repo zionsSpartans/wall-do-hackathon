@@ -112,3 +112,4 @@ mongodb/mongocreds.env
 elasticsearch/elastic_data
 vagrantHosts/.vagrant
 walldo_py/walldo/walldodb/pruebaMongo.py
+walldo_py/walldo/elastic/elasticconfig.py
