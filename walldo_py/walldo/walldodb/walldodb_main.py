@@ -4,6 +4,7 @@ from walldodb.configbd import conn
 bd = conn()
 score = bd.puntuaciones
 baneos = bd.baneos
+whitelist = bd.whitelist
 
 # Objetos temporales para pruebas
 # detectedip = { "ip": "10.0.13.1", "score": 35 }
