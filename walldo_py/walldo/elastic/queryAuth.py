@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-sys.path.append('/home/andoniaf/zionSpartans/wall-do-hackathon/walldo_py/walldo/walldodb')
+sys.path.append('/walldo/walldodb')
 from walldodb import update_score
 
 ##########################################################################################
