@@ -23,8 +23,10 @@ def accion_baneo_ssh(ssh_dict):
     # Print output ejecucion ansible
     print(output)
     # Guardamos fecha del baneo
-    ban_time = datetime.datetime.fromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M")
+    ban_time = datetime.datetime.fromtimestamp(time.time())
+    ban_time_human = ban_time.strftime("%Y-%m-%d %H:%M")
     unban_time = datetime.datetime.now() + datetime.timedelta(minutes=baneo)
-    unban_time = unban_time.strftime("%Y-%m-%d %H:%M")
-    print(ban_time)
-    print(unban_time)
+    unban_time_human = unban_time.strftime("%Y-%m-%d %H:%M")
+    print(ban_time_human)
+    print(unban_time_human)
+    
