@@ -1,9 +1,9 @@
 from elasticconfig import es
 
-i = 0
 
 def queryIndices():
     var = sorted(es.indices.get_alias("file*"))
+    i = 0
     while i < len(var):
         indice = var[i]
         res = es.search(index=indice, body={"query": {"match_all": {}}})
@@ -14,4 +14,4 @@ def queryIndices():
             return 0
         else:
             print("vacio")
-        ++i
+        i += 1
