@@ -29,5 +29,5 @@ def queryauth(doc):
             detectedip = { "ip": ssh_ip, "score": 20 }
             update_score(detectedip)
     except:
-        print("")
+        print("Patron no detectado")
 
