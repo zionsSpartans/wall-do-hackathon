@@ -32,10 +32,10 @@ def queryauth(doc):
             ssh_user = doc['_source']['system']['auth']['user']
 
             # Si la IP esta en al whitelist se corta la funcion
-            #if is_white(ssh_ip):
-            #    # Salir
-            #    print("IP en la whitelist" + str(ssh_ip))
-            #    return 0
+            if is_white(ssh_ip):
+                # Salir
+                print("IP en la whitelist: " + str(ssh_ip))
+                return 0
 
             if ssh_user == "root":
                 detectedip = { "ip": ssh_ip, "score": 25 }
