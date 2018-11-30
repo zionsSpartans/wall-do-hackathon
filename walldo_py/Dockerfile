@@ -1,7 +1,7 @@
 FROM python:3.6-alpine
 
 # Install SSH client
-RUN apk add openssh-client
+RUN apk add openssh-client curl
 
 # Elasticsearch deps
 RUN pip3 install elasticsearch pymongo
