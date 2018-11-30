@@ -78,6 +78,7 @@ services:
   walldo_py:
     build:
       context: walldo_py
+    user: "1000"
     networks:
       - walldo
     depends_on:
