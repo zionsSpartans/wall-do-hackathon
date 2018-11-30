@@ -1,4 +1,4 @@
-from elasticconfig import es
+from elastic.elasticconfig import es
 
 
 def queryIndices():

@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
-sys.path.append('/walldo/walldodb')
-from walldodb import update_score
-from whitelist import is_white
+#import sys
+#sys.path.append('/walldo/walldodb')
+from walldodb.walldodb_main import update_score
+from walldodb.whitelist import is_white
 
 ##########################################################################################
 #

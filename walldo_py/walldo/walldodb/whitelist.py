@@ -1,4 +1,4 @@
-from configbd import conn
+from walldodb.configbd import conn
 
 # Recuperamos conector a BBBDD
 bd = conn()

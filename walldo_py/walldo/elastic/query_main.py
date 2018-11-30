@@ -1,9 +1,9 @@
 import time
-import sys
-sys.path.append('/walldo/elastic')
-from queryAuth import queryauth
-from elasticconfig import es
-from queryIndices import queryIndices
+#import sys
+#sys.path.append('/walldo/elastic')
+from elastic.queryAuth import queryauth
+from elastic.elasticconfig import es
+from elastic.queryIndices import queryIndices
 
 
 def query_main():
