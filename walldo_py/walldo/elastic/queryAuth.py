@@ -4,6 +4,7 @@
 import sys
 sys.path.append('/walldo/walldodb')
 from walldodb import update_score
+from whitelist import is_white
 
 ##########################################################################################
 #
@@ -22,6 +23,13 @@ def queryauth(doc):
         ssh_event = doc['_source']['system']['auth']['ssh']['event']
         ssh_user = doc['_source']['system']['user']
         ssh_ip = doc['_source']['system']['auth']['ssh']['ip']
+
+        # Si la IP esta en al whitelist se corta la funcion
+        if is_white(ssh_ip):
+            # Salir
+            print("IP en la whitelist" + str(ssh_ip))
+            return 0
+
         if  ssh_event == "Accepted":
             detectedip = { "ip": ssh_ip, "score": -10 }
             print("Patron Accepted detectado")
