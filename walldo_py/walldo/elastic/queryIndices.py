@@ -14,4 +14,5 @@ def queryIndices():
             return 0
         else:
             print("vacio")
-        i += 1
+i += 1
+i += 1
