@@ -33,7 +33,6 @@ def accion_baneo_ssh(ssh_dict):
     if query_ban(ip_toban,actual_time):
         print("Hay que banear")
         unban_time = datetime.datetime.now() + datetime.timedelta(minutes=baneo)
-        unban_time_human = unban_time.strftime("%Y-%m-%d %H:%M")
         #### METER EN TRY
         # Update en BD
         update_ban(ip_toban,actual_time,unban_time)
