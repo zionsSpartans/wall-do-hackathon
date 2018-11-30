@@ -8,7 +8,7 @@ from walldodb.walldodb_main import update_ban
 hosts_path = "/walldo/hosts"
 
 # Ejemplo de dict para pruebas
-# {'ip': "14.14.14.14", 'tiempo': '60', 'cd': '180'}
+# {'ip': "14.14.14.14", 'tiempo': 60, 'cd': 180}
 
 # Funcion que a traves de un script auxiliar banea la IP que se le pasa.
 #
@@ -19,10 +19,10 @@ def accion_baneo_ssh(ssh_dict):
     baneo = ssh_dict["tiempo"]
     cooldown = ssh_dict["cd"]
     # Ejecucion del script auxiliar
-    torun = subprocess.Popen(["run_ban_ssh.sh", hosts_path, ip_toban], stdout=subprocess.PIPE)
-    output , err = torun.communicate()
+    #torun = subprocess.Popen(["run_ban_ssh.sh", hosts_path, ip_toban], stdout=subprocess.PIPE)
+    #output , err = torun.communicate()
     # Print output ejecucion ansible
-    print(output)
+    #print(output)
     # Guardamos fecha del baneo
     ban_time = datetime.datetime.fromtimestamp(time.time())
     ban_time_human = ban_time.strftime("%Y-%m-%d %H:%M")
@@ -30,4 +30,4 @@ def accion_baneo_ssh(ssh_dict):
     unban_time_human = unban_time.strftime("%Y-%m-%d %H:%M")
     print(ban_time_human)
     print(unban_time_human)
-    update_ban(ip_toban,baneo,cooldown)
+    update_ban(ip_toban,ban_time,unban_time)

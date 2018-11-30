@@ -1,4 +1,4 @@
-ban = [{'rango': '100', 'tiempo': '60', 'cd':'180'}, {'rango': '300', 'tiempo': '120', 'cd': '180'}]
+ban = [{'rango': '100', 'tiempo': 60, 'cd':180}, {'rango': '300', 'tiempo': 120, 'cd': 180}]
 
 def baneos(ip, puntuaciones):
     i = 0
