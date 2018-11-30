@@ -1,3 +1,3 @@
 from elasticsearch import Elasticsearch
 
-es = Elasticsearch({"ip_host"})
+es = Elasticsearch({"elasticsearch"})
