@@ -18,12 +18,6 @@ def accion_baneo_ssh(ssh_dict):
     ip_toban = ssh_dict["ip"]
     baneo = ssh_dict["tiempo"]
     cooldown = ssh_dict["cd"]
-    # Ejecucion del script auxiliar
-    #torun = subprocess.Popen(["run_ban_ssh.sh", hosts_path, ip_toban], stdout=subprocess.PIPE)
-    #output , err = torun.communicate()
-    # Print output ejecucion ansible
-    #print(output)
-    # Guardamos fecha del baneo
     ban_time = datetime.datetime.fromtimestamp(time.time())
     ban_time_human = ban_time.strftime("%Y-%m-%d %H:%M")
     unban_time = datetime.datetime.now() + datetime.timedelta(minutes=baneo)
@@ -31,3 +25,10 @@ def accion_baneo_ssh(ssh_dict):
     print(ban_time_human)
     print(unban_time_human)
     update_ban(ip_toban,ban_time,unban_time)
+    # Ejecucion del script auxiliar
+    #torun = subprocess.Popen(["run_ban_ssh.sh", hosts_path, ip_toban], stdout=subprocess.PIPE)
+    #output , err = torun.communicate()
+    # Print output ejecucion ansible
+    #print(output)
+    # Guardamos fecha del baneo
+
