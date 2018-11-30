@@ -28,16 +28,17 @@ def update_score(ip_frommodule):
     # PRINT PARA DEMO
     print("Despues: " + str(score.find_one({"ip": ip_frommodule["ip"]})))
 
-def query_ban(ip, lastban, unbantime, cooldwon):
+def query_ban(ip, actual_time, unbantime, cooldwon):
     # Recuperamos info de BBDD
     data_indb = baneos.find_one({"ip": ip})
     # Si no habia info se realizara una entrada
     if data_indb is None:
-        baneos.update_one({"ip": ip}, { "$set": { "lastban": lastban, "unban" : unbantime }},upsert=True)
+        print("No esta en BBDD")
+        #baneos.update_one({"ip": ip}, { "$set": { "lastban": actual_time, "unban" : unbantime }},upsert=True)
     else:
         print("Esta en BBDD, hay que comprobar lastban y cooldown")
         cd_time = data_indb["lastban"] +  datetime.timedelta(minutes=cooldown)
-        if horaactual > cd_time:
+        if actual_time > cd_time:
             print("Ha pasado el periodo de cooldown, hay que banear")
         else:
             print("Baneo en cooldown")
