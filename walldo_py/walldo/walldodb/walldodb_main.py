@@ -3,6 +3,7 @@ from walldodb.configbd import conn
 # Recuperamos conector a BBBDD
 bd = conn()
 score = bd.puntuaciones
+baneos = bd.baneos
 
 # Objetos temporales para pruebas
 # detectedip = { "ip": "10.0.13.1", "score": 35 }
@@ -27,3 +28,11 @@ def update_score(ip_frommodule):
     # PRINT PARA DEMO
     print("Despues: " + str(score.find_one({"ip": ip_frommodule["ip"]})))
 
+def update_ban(ip, lastban, unbantime):
+    # Recuperamos info de BBDD
+    ip_indb = baneos.find_one({"ip": ip})
+    # Si no habia info se realizara una entrada
+    if ip_indb is None:
+        baneos.update_one({"ip": ip}, { "$set": { "lastban": lastban, "unban" : unbantime }},upsert=True)
+    else:
+        print("Esta en BBDD")

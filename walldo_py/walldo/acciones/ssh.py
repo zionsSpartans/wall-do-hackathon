@@ -1,6 +1,7 @@
 import subprocess
 import datetime
 import time
+from walldodb.walldodb_main import update_ban
 
 # Modulo PDTE de utilizar directamente python con ansible API
 
@@ -29,4 +30,4 @@ def accion_baneo_ssh(ssh_dict):
     unban_time_human = unban_time.strftime("%Y-%m-%d %H:%M")
     print(ban_time_human)
     print(unban_time_human)
-    
+    update_ban(ip_toban,baneo,cooldown)
