@@ -17,5 +17,5 @@ def accion_baneo_ssh(ssh_dict):
     # Print output ejecucion ansible
     print(output)
     # Guardamos fecha del baneo
-    ban_timestamp = datetime.datetime.fromtimestamp(1543508331).isoformat()
-
+    ban_time = datetime.datetime.fromtimestamp(time.time()).strftime("%Y-%m-%d %H:%M")
+    unban_time = datetime.datetime.now() + datetime.timedelta(minutes=15)
