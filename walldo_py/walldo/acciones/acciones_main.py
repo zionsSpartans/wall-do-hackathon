@@ -26,7 +26,9 @@ def recoje_puntuaciones():
         puntuaciones = doc['score']
         if alert(str(puntuaciones)) == 0:
             ban = baneos(ip, str(puntuaciones))
+            print('baneo')
             accion_baneo_ssh(ban)
         else:
             alert = alert(str(puntuaciones))
+            print('alerta')
             accion_tg(alert)

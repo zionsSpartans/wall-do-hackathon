@@ -5,6 +5,7 @@ import time
 import sys
 sys.path.append('/walldo')
 from elastic.query_main import query_main
+from acciones.acciones_main import recoje_puntuaciones
 
 # Espera para permitir que Elastic arranque
 # PDTE de sustituir por un healtcheck a una URL de elastic
@@ -14,3 +15,4 @@ print("Arrancando!")
 
 while True:
     query_main()
+    recoje_puntuaciones()
