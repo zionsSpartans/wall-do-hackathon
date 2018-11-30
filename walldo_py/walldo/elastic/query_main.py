@@ -7,7 +7,7 @@ indice = queryIndices()
 res = es.search(index=indice, body={"query": {"match_all": {}}})
 # print de documentos para las pruebas
 print("%d documents found" % res['hits']['total'])
-print(indice)
+
 scroll_size = res['hits']['total']
 while (scroll_size > 0):
     for doc in res['hits']['hits']:

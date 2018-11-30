@@ -4,9 +4,5 @@ def queryIndices():
 
     var = es.indices.get_alias("file*")
     indice = list(var.keys())[0]
-    res = es.search(index=indice, body={"query": {"match_all": {}}})
+    print(indice)
 
-    if res is None:
-        return ""
-    else:
-        return indice
