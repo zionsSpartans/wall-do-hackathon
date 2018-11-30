@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys
-sys.path.insert(0, '/root/wall-do-hackathon/walldo_py/walldo/walldodb')
 
-import walldodb
+import sys
+sys.path.append('/home/andoniaf/zionSpartans/wall-do-hackathon/walldo_py/walldo/walldodb')
+
+from walldodb import update_score
 
 def queryauth(doc):
     try:
