@@ -10,20 +10,17 @@ from walldodb.walldodb_main import query_ban
 # Ademas, se realiza un insert en una tabla la fecha del baneo y la de desbaneo para poder llevar un control.
 #
 
-
-hosts_path = "/walldo/hosts"
-
-# Ejemplo de dict para pruebas
-# {'ip': "14.14.14.14", 'tiempo': 60, 'cd': 180}
-
-
+# Ejecucion del script auxiliar
 def baneo_ssh(ip_toban):
-    # Ejecucion del script auxiliar
+    hosts_path = "/walldo/hosts"
     torun = subprocess.Popen(["run_ban_ssh.sh", hosts_path, ip_toban], stdout=subprocess.PIPE)
     output , err = torun.communicate()
     # Print output ejecucion ansible
     print(output)
 
+
+# Ejemplo de dict para pruebas
+# {'ip': "14.14.14.14", 'tiempo': 60, 'cd': 180}
 
 def accion_baneo_ssh(ssh_dict):
     ip_toban = ssh_dict["ip"]
