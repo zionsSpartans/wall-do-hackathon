@@ -3,7 +3,6 @@
 
 import sys
 sys.path.append('/home/andoniaf/zionSpartans/wall-do-hackathon/walldo_py/walldo/walldodb')
-
 from walldodb import update_score
 
 def queryauth(doc):
