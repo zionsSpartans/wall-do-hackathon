@@ -16,8 +16,10 @@ def update_score(ip_frommodule):
     # Si no habia info se realizara un insert con la puntuacion
     if ip_indb is None:
         new_score = ip_frommodule["score"]
+        print("No existe en BBDD, insertamos puntuacion")
     else:
         new_score = ip_indb["score"] + ip_frommodule["score"]
+        print("Existe en BBDD, actualizamos puntuacion")
     # PRINT PARA DEMO
     print("Antes: " + str(ip_indb))
     # Actualizamos en BBDD con la nueva puntuacion

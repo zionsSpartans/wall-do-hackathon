@@ -28,7 +28,7 @@ def queryauth(doc):
         elif ssh_event == "Failed":
             ssh_ip = doc['_source']['system']['auth']['ssh']['ip']
             detectedip = { "ip": ssh_ip, "score": 20 }
-            print("Patron Accepted detectado")
+            print("Patron Failed detectado")
             update_score(detectedip)
     except:
         print("Patron no detectado")
