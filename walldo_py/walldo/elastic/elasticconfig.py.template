@@ -1,6 +1,3 @@
 from elasticsearch import Elasticsearch
-import elasticsearch.helpers
 
-elasticSource = elasticsearch.Elasticsearch([{"host": "localhost", "port": 9200}])
-elasticDestination = elasticsearch.Elasticsearch([{"host": "localhost", "port": 9200}])
-es = Elasticsearch()
+es = Elasticsearch({"ip_host"})
