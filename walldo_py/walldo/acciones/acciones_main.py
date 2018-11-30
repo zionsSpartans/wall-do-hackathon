@@ -1,6 +1,5 @@
 from walldodb.configbd import conn
 from acciones.baneos import baneos
-from acciones.alertas import accion_tg
 # Batch temporal a ejecutar en segundo plano mientras se investiga como trabajar con trigger en mongo
 
 # Recuperamos conector a BBBDD
