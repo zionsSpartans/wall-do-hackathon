@@ -10,4 +10,8 @@ def queryIndices():
         if res['hits']['total'] > 0:
             print(indice)
             return indice
+        elif i == len(var):
+            return 0
+        else:
+            print("vacio")
         ++i
