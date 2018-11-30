@@ -13,13 +13,15 @@ score = bd.puntuaciones
 def update_score(ip_frommodule):
     # Recuperamos info de BBDD
     ip_indb = score.find_one({"ip": ip_frommodule["ip"]})
-    # Si no habia info se realizara un insert nuevo
+    # Si no habia info se realizara un insert con la puntuacion
     if ip_indb is None:
         new_score = ip_frommodule["score"]
     else:
         new_score = ip_indb["score"] + ip_frommodule["score"]
-    print(ip_indb)
+    # PRINT PARA DEMO
+    print("Antes: " + str(ip_indb))
     # Actualizamos en BBDD con la nueva puntuacion
     score.update_one({"ip": ip_frommodule["ip"]}, { "$set": { "score": new_score }},upsert=True)
-    print(score.find_one({"ip": ip_frommodule["ip"]}))
+    # PRINT PARA DEMO
+    print("Despues: " + str(score.find_one({"ip": ip_frommodule["ip"]})))
 
