@@ -5,6 +5,7 @@
 #sys.path.append('/walldo/walldodb')
 from walldodb.walldodb_main import update_score
 from walldodb.whitelist import is_white
+from global_conf import *
 
 ##########################################################################################
 #
@@ -16,6 +17,9 @@ from walldodb.whitelist import is_white
 #
 #ssh_ip -> variable que guarda la ip del documento estudiado
 #
+# TODO:
+# - Permitir seleecionar que otros users pueden tener diferente puntuacion
+#
 ##########################################################################################
 
 def queryauth(doc):
@@ -24,7 +28,7 @@ def queryauth(doc):
 
         if  ssh_event == "Accepted":
             ssh_ip = doc['_source']['system']['auth']['ssh']['ip']
-            detectedip = { "ip": ssh_ip, "score": -10 }
+            detectedip = { "ip": ssh_ip, "score": ssh_accepted_score }
             print("Patron Accepted detectado")
             update_score(detectedip)
         elif ssh_event == "Failed":
@@ -38,9 +42,9 @@ def queryauth(doc):
                 return 0
 
             if ssh_user == "root":
-                detectedip = { "ip": ssh_ip, "score": 25 }
+                detectedip = { "ip": ssh_ip, "score": ssh_failed_root_score }
             else:
-                detectedip = {"ip": ssh_ip, "score": 20}
+                detectedip = {"ip": ssh_ip, "score": ssh_failed_score}
             print("Patron Failed detectado")
             update_score(detectedip)
 

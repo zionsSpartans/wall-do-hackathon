@@ -81,6 +81,7 @@ services:
     build:
       context: walldo_py
     user: "1000"
+    command: python walldo_main.py
     networks:
       - walldo
     depends_on:

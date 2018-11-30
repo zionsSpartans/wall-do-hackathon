@@ -9,6 +9,43 @@ Basándose en la información recopilada de los logs en los diferentes hosts se 
 
 Tras asignar una puntuación, en base a esta se determinan las acciones a realizar, que pueden ir desde una alerta hasta un baneo permanente.
 
+## Deploy Wall-do
+### Dependencias
+- [Docker](https://docs.docker.com/install/)
+- [docker-compose](https://docs.docker.com/compose/install/#install-compose)
+
+### Despliegue
+0. Clonar repo:
+  ```bash
+  git clone git@github.com:zionsSpartans/wall-do-hackathon.git
+  ```
+1. Configurar credenciales:
+```bash
+cd wall-do-hackathon
+cp -rp mongodb/mongocreds.env.template mongodb/mongocreds.env
+vim mongodb/mongocreds.env # Rellenar credenciales BBDD
+cp -rp walldo_py/walldo/walldodb/configbd.py.template walldo_py/walldo/walldodb/configbd.py
+vim walldo_py/walldo/walldodb/configbd.py # Rellenar credenciales BBDD (las mismas que antes!!)
+```
+
+2. Configurar conexion a Elasticsearch:
+  - Si se va a utilizar el stack levantado en docker:
+    ```bash
+    echo "ELK_VERSION=6.4.2" >> .env # Seleccionar la versión a utilizar de Elastic
+    mv walldo_py/walldo/elastic/elasticconfig.py.template walldo_py/walldo/elastic/elasticconfig.py
+    ```
+  - Si se va a utilizar un Elastic propio:
+    ```bash
+    mv walldo_py/walldo/elastic/elasticconfig.py.template walldo_py/walldo/elastic/elasticconfig.py
+    vim walldo_py/walldo/elastic/elasticconfig.py
+    ```
+
+3. Arrancar con docker compose:
+```bash
+docker-compose up # Usar '-d' si queremos que arranque en segundo plano 
+```
+  - Si no se va a usar el stack de ELK comentar en el docker-compose.
+
 ## Estructura del repositorio
 
 - walldo_py:
