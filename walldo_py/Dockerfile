@@ -14,5 +14,4 @@ WORKDIR /walldo
 # Durante el desarrollo generar imagen y arrancar con:
 #   docker run --rm -it -v ${PWD}/walldo:/walldo --entrypoint "/bin/sh"  walldotestting
 
-# ENTRYPOINT temporal
-ENTRYPOINT ["/bin/sleep","10000000000000000"]
+ENTRYPOINT ["python","walldo_main.py"]
