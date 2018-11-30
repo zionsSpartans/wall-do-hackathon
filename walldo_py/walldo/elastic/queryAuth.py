@@ -29,7 +29,7 @@ def queryauth(doc):
             update_score(detectedip)
         elif ssh_event == "Failed":
             ssh_ip = doc['_source']['system']['auth']['ssh']['ip']
-            ssh_user = doc['_source']['system']['user']
+            ssh_user = doc['_source']['system']['auth']['user']
 
             # Si la IP esta en al whitelist se corta la funcion
             #if is_white(ssh_ip):
@@ -38,11 +38,13 @@ def queryauth(doc):
             #    return 0
 
             if ssh_user == "root":
-                detectedip = { "ip": ssh_ip, "score": 20 }
+                detectedip = { "ip": ssh_ip, "score": 25 }
             else:
-                detectedip = {"ip": ssh_ip, "score": 25}
+                detectedip = {"ip": ssh_ip, "score": 20}
             print("Patron Failed detectado")
             update_score(detectedip)
+
     except:
         print("Patron no detectado")
+
 
