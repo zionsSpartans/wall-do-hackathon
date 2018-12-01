@@ -4,6 +4,7 @@
 # Configuracion whitelist
 #
 ##########################################
+# Añadir en este fichero unicamente el listado de IPs que deben estar en whitelist
 whitelist_path = "/walldo/whitelist"
 
 ##########################################
