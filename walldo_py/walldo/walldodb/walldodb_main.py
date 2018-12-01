@@ -1,4 +1,5 @@
 from walldodb.configbd import conn
+import datetime
 
 # Recuperamos conector a BBBDD
 bd = conn()
