@@ -15,4 +15,4 @@ print("Arrancando!")
 
 while True:
     query_main()
-    recoje_puntuaciones()
+    #recoje_puntuaciones()
