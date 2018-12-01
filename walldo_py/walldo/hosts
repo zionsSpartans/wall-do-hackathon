@@ -1,3 +1,6 @@
 #vm1 ansible_host=172.16.64.X ansible_user=vagrant
-#vm2 ansible_host=172.16.64.X ansible_user=vagrant
+vm2 ansible_host=172.16.64.125 ansible_user=vagrant
 vm3 ansible_host=172.16.64.113 ansible_user=vagrant
+
+[all:vars]
+ansible_ssh_private_key_file = "/walldo/acciones/walldo_key"

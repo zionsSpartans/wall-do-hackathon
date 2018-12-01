@@ -113,3 +113,5 @@ elasticsearch/elastic_data
 vagrantHosts/.vagrant
 walldo_py/walldo/walldodb/pruebaMongo.py
 walldo_py/walldo/elastic/elasticconfig.py
+walldo_py/walldo/acciones/walldo_key
+walldo_py/walldo/acciones/walldo_key.pub
