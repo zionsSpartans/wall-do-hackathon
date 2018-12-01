@@ -6,6 +6,8 @@ RUN apk add openssh-client curl ansible
 # Elasticsearch deps
 RUN pip3 install elasticsearch pymongo
 
+RUN groupadd -r walldo && useradd -r -g walldo walldo
+
 # Copy walldo code
 COPY ./walldo /walldo
 
