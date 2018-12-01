@@ -14,7 +14,7 @@ def query_main():
             res = es.search(index=indice, body={"query": {"match_all": {}}})
             print("%d documents found" % res['hits']['total'])
             scroll_size = res['hits']['total']
-            while (scroll_size > 0):
+            while scroll_size > 0:
                     for doc in res['hits']['hits']:
                         if doc['_source']['source'] == "/var/log/auth.log":
                             queryauth(doc)

@@ -29,7 +29,7 @@ def update_score(ip_frommodule):
     # PRINT PARA DEMO
     print("Despues: " + str(score.find_one({"ip": ip_frommodule["ip"]})))
 
-def query_ban(ip, actual_time):
+def query_ban(ip, actual_time,cooldown):
     # Recuperamos info de BBDD
     data_indb = baneos.find_one({"ip": ip})
     # Si no habia info se realizara una entrada

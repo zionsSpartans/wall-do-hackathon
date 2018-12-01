@@ -5,7 +5,7 @@ def baneos(ip, puntuaciones):
     while i < len(alertas):
         if str(puntuaciones) < alertas[i]['rango']:
             alert = [{'ip': ip}, {'tiempo': alertas[i]['tiempo']}, {'cd': alertas[i]['cd']}]
-            return(alert)
+            return alert
         i += 1
 
     return 0

@@ -30,7 +30,7 @@ def accion_baneo_ssh(ssh_dict):
     # Guardamos fecha actual
     actual_time = datetime.datetime.fromtimestamp(time.time())
     # Comprobamos si se debe banear
-    if query_ban(ip_toban,actual_time):
+    if query_ban(ip_toban,actual_time, cooldown):
         print("Hay que banear")
         unban_time = datetime.datetime.now() + datetime.timedelta(minutes=baneo)
         #### METER EN TRY
