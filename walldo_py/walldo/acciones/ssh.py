@@ -20,6 +20,12 @@ def baneo_ssh(ip_toban):
     # Print output ejecucion ansible
     print(output)
 
+def desbaneo_ssh(ip_tounban):
+    hosts_path = "/walldo/hosts"
+    torun = subprocess.Popen(["run_unban_ssh.sh", hosts_path, ip_tounban], stdout=subprocess.PIPE)
+    output, err = torun.communicate()
+    # Print output ejecucion ansible
+    print(output)
 
 # Ejemplo de dict para pruebas
 # {'ip': "14.14.14.14", 'tiempo': 60, 'cd': 180}
@@ -41,3 +47,4 @@ def accion_baneo_ssh(ssh_dict):
         baneo_ssh(ip_toban)
     else:
         print("No hay que banear")
+
