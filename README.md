@@ -40,7 +40,14 @@ vim walldo_py/walldo/walldodb/configbd.py # Rellenar credenciales BBDD (las mism
     vim walldo_py/walldo/elastic/elasticconfig.py
     ```
 
-3. Arrancar con docker compose:
+3. Configuraciones varias:
+   - Desde el fichero 'walldo_py/walldodb/global_conf.py' se pueden
+     configurar las puntuaciones de los modulos.
+   - La ruta donde se encuentra el fichero de whitelist.
+     - Este fichero unicamente debe contener el listado de IPs.
+     - Estas IPs se cargan en BBDD al arrancar la aplicación.
+
+4. Arrancar con docker compose:
 ```bash
 docker-compose up # Usar '-d' si queremos que arranque en segundo plano 
 ```
