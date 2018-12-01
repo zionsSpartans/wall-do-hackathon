@@ -1,4 +1,5 @@
 from walldodb.configbd import conn
+import os
 
 # Recuperamos conector a BBBDD
 bd = conn()
@@ -22,11 +23,13 @@ def insert_whitelist(ip):
 
 # Func para cargar fichero de IPs en BBDD
 def load_whitelist(file):
-    with open(file, 'r') as f:
-        empty = True
-        for line in f:
-            empty = False
-            insert_whitelist(line)
-            print("IP añadida a la whitelist " + line)
-        if empty:
-            print("No hay IPs en la whitelist")
+    if os.path.exists(file) and os.path.getsize(file) > 0:
+        # Borramos datos previos
+        whitelist.delete_many({})
+        # Cargamos de nuevo el fichero en BBDD
+        with open(file, 'r') as f:
+            for line in f:
+                insert_whitelist(line)
+                print("IP añadida a la whitelist " + line)
+    else:
+        print("No hay IPs en la whitelist")
