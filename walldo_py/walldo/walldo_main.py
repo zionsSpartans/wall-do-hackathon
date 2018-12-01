@@ -23,7 +23,7 @@ def proceso2():
 def proceso3():
     while True:
         revisa_baneos()
-        time.sleep(180)
+        time.sleep(60)
 
 
 def main():
