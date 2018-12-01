@@ -2,6 +2,8 @@ from walldodb.configbd import conn
 from acciones.baneos import baneos
 from acciones.ssh import accion_baneo_ssh
 from acciones.alertas import alert
+from walldodb.whitelist import is_white
+from walldodb.walldodb_main import update_score
 # Batch temporal a ejecutar en segundo plano mientras se investiga como trabajar con trigger en mongo
 
 # Recuperamos conector a BBBDD
@@ -26,6 +28,14 @@ def recoje_puntuaciones():
     for doc in coleccion:
         ip = doc['ip']
         puntuaciones = doc['score']
+        # Si la IP esta en al whitelist se pone la puntuacion a 0
+        if is_white(ip):
+            # Poner a 0
+            print("IP en la whitelist, poniendo a 0: " + str(ip))
+            ip_toreduce = {"ip": ip, "score": 0}
+            update_score(ip_toreduce)
+            puntuaciones = 0
+
         if alert(ip, str(puntuaciones)) == 0:
             ban = baneos(ip, str(puntuaciones))
             print('baneo')
