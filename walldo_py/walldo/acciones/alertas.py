@@ -1,4 +1,4 @@
-alertas = [{'rango':'100'}, {'rango':'300'}]
+alertas = [{'rango':'100'}]
 
 def alert(ip, puntuaciones):
     i = 0

@@ -26,12 +26,12 @@ def recoje_puntuaciones():
     for doc in coleccion:
         ip = doc['ip']
         puntuaciones = doc['score']
-        if alert(str(puntuaciones)) == 0:
+        if alert(ip, str(puntuaciones)) == 0:
             ban = baneos(ip, str(puntuaciones))
             print('baneo')
             accion_baneo_ssh(ban)
         else:
-            alerta = alert(str(puntuaciones))
+            alerta = alert(ip, str(puntuaciones))
             #Modulo pendiente de desarrollar
             print('En este punto se enviaria una alerta.')
             #accion_tg(alerta)
