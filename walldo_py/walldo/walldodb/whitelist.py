@@ -4,6 +4,7 @@ from walldodb.configbd import conn
 bd = conn()
 whitelist = bd.whitelist
 
+
 # Func para comprobar si una IP esta whitelisted
 def is_white(ip):
     # Recuperamos info de BBDD
@@ -13,9 +14,11 @@ def is_white(ip):
     else:
         return True
 
+
 # Func para insertar IP en BBDD
 def insert_whitelist(ip):
     whitelist.update_one({"ip": ip}, {"$set": {"ip": ip}}, upsert=True)
+
 
 # Func para cargar fichero de IPs en BBDD
 def load_whitelist(file):
