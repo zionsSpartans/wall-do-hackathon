@@ -6,6 +6,7 @@
 import sys
 sys.path.append('/walldo')
 from walldodb.whitelist import load_whitelist
+from global_conf import whitelist_path
 
 # Carga de IPs en la whitelist
 try:
