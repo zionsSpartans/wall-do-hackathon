@@ -1,5 +1,6 @@
 from walldodb.configbd import conn
 from acciones.baneos import baneos
+from acciones.ssh import accion_baneo_ssh
 # Batch temporal a ejecutar en segundo plano mientras se investiga como trabajar con trigger en mongo
 
 # Recuperamos conector a BBBDD
