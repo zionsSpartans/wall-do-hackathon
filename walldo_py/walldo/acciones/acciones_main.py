@@ -36,12 +36,12 @@ def recoje_puntuaciones():
             update_score(ip_toreduce)
             puntuaciones = 0
 
-        if alert(ip, str(puntuaciones)) == 0:
+        if alert(ip, str(puntuaciones)) == 2:
             ban = baneos(ip, str(puntuaciones))
             print('baneo')
             print(ban)
             accion_baneo_ssh(ban)
-        else:
+        elif alert(ip, str(puntuaciones)) == 1:
             alerta = alert(ip, str(puntuaciones))
             #Modulo pendiente de desarrollar
             print('En este punto se enviaria una alerta.')

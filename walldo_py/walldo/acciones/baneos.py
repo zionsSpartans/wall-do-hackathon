@@ -5,9 +5,6 @@ def baneos(ip, puntuaciones):
     while i < len(ban):
         if str(puntuaciones) > ban[i]['rango']:
             baneo = {'ip': ip, 'tiempo': ban[i]['tiempo'], 'cd': ban[i]['cd']}
-        elif str(puntuaciones) < ban[0]['rango']:
-            baneo = 0
         i += 1
-
     return baneo
 
