@@ -1,7 +1,7 @@
-<<<<<<< HEAD
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from multiprocessing import Process
 import time
 import sys
 sys.path.append('/walldo')
@@ -10,47 +10,36 @@ from walldodb.whitelist import load_whitelist
 from elastic.query_main import query_main
 from acciones.acciones_main import recoje_puntuaciones
 
-# Espera para permitir que Elastic arranque
-# PDTE de sustituir por un healtcheck a una URL de elastic
-print("Esperando 60 segundos para arrancar...")
-time.sleep(60)
-print("Arrancando!")
+def proceso1():
+    while True:
+        query_main()
 
-# Carga de IPs en la whitelist
-try:
-    load_whitelist(whitelist_path)
-    print("Cargadas IPs en whitelist")
-except Exception as e:
-    print("No se ha podido cargar la whitelist: " + str(e))
+def proceso2():
+    while True:
+        recoje_puntuaciones()
 
-while True:
-    query_main()
-=======
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-import time
-import sys
-sys.path.append('/walldo')
-from global_conf import whitelist_path
-from walldodb.whitelist import load_whitelist
-from elastic.query_main import query_main
-from acciones.acciones_main import recoje_puntuaciones
+def main():
+    p1 = Process(target=proceso1)
+    p1.start()
+    p2 = Process(target=proceso2)
+    p2.start()
+    p1.join()
+    p2.join()
 
-# Espera para permitir que Elastic arranque
-# PDTE de sustituir por un healtcheck a una URL de elastic
-print("Esperando 60 segundos para arrancar...")
-time.sleep(60)
-print("Arrancando!")
+if __name__ == '__main__':
+    # Espera para permitir que Elastic arranque
+    # PDTE de sustituir por un healtcheck a una URL de elastic
+    print("Esperando 60 segundos para arrancar...")
+    time.sleep(60)
+    print("Arrancando!")
 
-# Carga de IPs en la whitelist
-try:
-    load_whitelist(whitelist_path)
-    print("Cargadas IPs en whitelist")
-except Exception as e:
-    print("No se ha podido cargar la whitelist: " + str(e))
+    # Carga de IPs en la whitelist
+    try:
+        load_whitelist(whitelist_path)
+        print("Cargadas IPs en whitelist")
+    except Exception as e:
+        print("No se ha podido cargar la whitelist: " + str(e))
 
-while True:
-    query_main()
->>>>>>> ce586152cc3c283aef2c63d92b4dbb0e62502eff
-    #recoje_puntuaciones()
+    main()
+

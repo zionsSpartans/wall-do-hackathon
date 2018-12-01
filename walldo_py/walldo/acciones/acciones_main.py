@@ -1,6 +1,7 @@
 from walldodb.configbd import conn
 from acciones.baneos import baneos
 from acciones.ssh import accion_baneo_ssh
+from acciones.alertas import alert
 # Batch temporal a ejecutar en segundo plano mientras se investiga como trabajar con trigger en mongo
 
 # Recuperamos conector a BBBDD
@@ -30,6 +31,7 @@ def recoje_puntuaciones():
             print('baneo')
             accion_baneo_ssh(ban)
         else:
-            alert = alert(str(puntuaciones))
-            print('alerta')
-            accion_tg(alert)
+            alerta = alert(str(puntuaciones))
+            #Modulo pendiente de desarrollar
+            print('En este punto se enviaria una alerta.')
+            #accion_tg(alerta)
