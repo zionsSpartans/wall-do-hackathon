@@ -1,10 +1,14 @@
 
-
-
+##########################################
+#
+# Configuracion whitelist
+#
+##########################################
+whitelist_path = "/walldo/whitelist"
 
 ##########################################
 #
-# Configuración puntuaciones /var/log/auth
+# Configuracion puntuaciones /var/log/auth
 #
 ##########################################
 # Resta de puntos por contraseña aceptada

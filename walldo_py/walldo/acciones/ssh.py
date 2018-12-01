@@ -4,6 +4,7 @@ import time
 from walldodb.walldodb_main import query_ban
 from walldodb.walldodb_main import update_ban
 
+
 # Modulo PDTE de utilizar directamente python con ansible API
 #
 # Un script auxiliar se encarga de banear la IP que se le pasa.
@@ -15,7 +16,7 @@ from walldodb.walldodb_main import update_ban
 def baneo_ssh(ip_toban):
     hosts_path = "/walldo/hosts"
     torun = subprocess.Popen(["run_ban_ssh.sh", hosts_path, ip_toban], stdout=subprocess.PIPE)
-    output , err = torun.communicate()
+    output, err = torun.communicate()
     # Print output ejecucion ansible
     print(output)
 
@@ -30,14 +31,13 @@ def accion_baneo_ssh(ssh_dict):
     # Guardamos fecha actual
     actual_time = datetime.datetime.fromtimestamp(time.time())
     # Comprobamos si se debe banear
-    if query_ban(ip_toban,actual_time):
+    if query_ban(ip_toban, actual_time, cooldown):
         print("Hay que banear")
         unban_time = datetime.datetime.now() + datetime.timedelta(minutes=baneo)
-        #### METER EN TRY
+        # PDTE METER EN TRY
         # Update en BD
-        update_ban(ip_toban,actual_time,unban_time)
+        update_ban(ip_toban, actual_time, unban_time)
         # Ejecuta ban
         baneo_ssh(ip_toban)
     else:
         print("No hay que banear")
-

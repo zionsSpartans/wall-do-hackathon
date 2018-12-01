@@ -1,9 +1,12 @@
 from walldodb.configbd import conn
+import datetime
 
 # Recuperamos conector a BBBDD
 bd = conn()
 score = bd.puntuaciones
 baneos = bd.baneos
+whitelist = bd.whitelist
+
 
 # Objetos temporales para pruebas
 # detectedip = { "ip": "10.0.13.1", "score": 35 }
@@ -24,11 +27,12 @@ def update_score(ip_frommodule):
     # PRINT PARA DEMO
     print("Antes: " + str(ip_indb))
     # Actualizamos en BBDD con la nueva puntuacion
-    score.update_one({"ip": ip_frommodule["ip"]}, { "$set": { "score": new_score }},upsert=True)
+    score.update_one({"ip": ip_frommodule["ip"]}, {"$set": {"score": new_score}}, upsert=True)
     # PRINT PARA DEMO
     print("Despues: " + str(score.find_one({"ip": ip_frommodule["ip"]})))
 
-def query_ban(ip, actual_time):
+
+def query_ban(ip, actual_time, cooldown):
     # Recuperamos info de BBDD
     data_indb = baneos.find_one({"ip": ip})
     # Si no habia info se realizara una entrada
@@ -37,7 +41,7 @@ def query_ban(ip, actual_time):
         return True
     else:
         print("Esta en BBDD, hay que comprobar lastban y cooldown")
-        cd_time = data_indb["lastban"] +  datetime.timedelta(minutes=cooldown)
+        cd_time = data_indb["lastban"] + datetime.timedelta(minutes=cooldown)
         if actual_time > cd_time:
             print("Ha pasado el periodo de cooldown, hay que banear")
             return True
@@ -45,6 +49,7 @@ def query_ban(ip, actual_time):
             print("Baneo en cooldown")
             return False
 
+
 def update_ban(ip, actual_time, unbantime):
     # Actualizamos info (o insertamos si no habia datos en BBDD)
-    baneos.update_one({"ip": ip}, { "$set": { "lastban": actual_time, "unban" : unbantime }},upsert=True)
+    baneos.update_one({"ip": ip}, {"$set": {"lastban": actual_time, "unban": unbantime}}, upsert=True)
