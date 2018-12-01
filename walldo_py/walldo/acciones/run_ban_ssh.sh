@@ -5,4 +5,4 @@
 hosts_path="$1"
 ip_toban="$2"
 
-ansible -i $hosts_path -m iptables -a "chain=INPUT source=$ip_toban jump=DROP" -b  all
+ansible -i ${hosts_path} -m iptables -a "chain=INPUT source=$ip_toban jump=DROP" -b  all
