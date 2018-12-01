@@ -1,4 +1,5 @@
 from walldodb.configbd import conn
+from acciones.ssh import desbaneo_ssh
 import time
 import datetime
 
@@ -6,11 +7,13 @@ import datetime
 
 # Recuperamos conector a BBBDD
 bd = conn()
-score = bd.baneos
+baneos = bd.baneos
 
 
 def revisa_baneos():
-    coleccion = score.find()
+    coleccion = baneos.find()
     for doc in coleccion:
         if doc['unban'] < datetime.datetime.now():
-            print("prueba")
+            ip = doc['ip']
+            print(ip)
+            desbaneo_ssh(ip)
