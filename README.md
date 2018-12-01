@@ -47,7 +47,13 @@ vim walldo_py/walldo/walldodb/configbd.py # Rellenar credenciales BBDD (las mism
      - Este fichero unicamente debe contener el listado de IPs.
      - Estas IPs se cargan en BBDD al arrancar la aplicación.
 
-4. Arrancar con docker compose:
+4. Configurar hosts a los que debe conectar ansible:
+   ```bash
+   vim walldo_py/walldo/hosts
+   ```
+      - [Info acerca del inventario en Ansible](https://docs.ansible.com/ansible/2.4/intro_inventory.html)
+
+5. Arrancar con docker compose:
 ```bash
 docker-compose up # Usar '-d' si queremos que arranque en segundo plano 
 ```
