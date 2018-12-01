@@ -11,27 +11,27 @@ from elastic.query_main import query_main
 from acciones.acciones_main import recoje_puntuaciones
 from acciones.desbaneos import revisa_baneos
 
-def proceso1():
+def query():
     while True:
         query_main()
 
-def proceso2():
+def scoring():
     while True:
         recoje_puntuaciones()
         time.sleep(180)
 
-def proceso3():
+def unbans():
     while True:
         revisa_baneos()
         time.sleep(60)
 
 
 def main():
-    p1 = Process(target=proceso1)
+    p1 = Process(target=query)
     p1.start()
-    p2 = Process(target=proceso2)
+    p2 = Process(target=scoring)
     p2.start()
-    p3 = Process(target=proceso3)
+    p3 = Process(target=unbans)
     p3.start()
     p1.join()
     p2.join()

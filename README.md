@@ -14,6 +14,11 @@ Tras asignar una puntuación, en base a esta se determinan las acciones a realiz
 - [Docker](https://docs.docker.com/install/)
 - [docker-compose](https://docs.docker.com/compose/install/#install-compose)
 
+### Dependencias en los hosts
+Necesidades a cubrir en los hosts que deba contactar Wall-do:
+- [Compatibles con Ansible](https://docs.ansible.com/ansible/2.7/installation_guide/intro_installation.html#managed-node-requirements) (actualmenten encargado de enviar los comandos a todos los nodos)
+- Estar incluidos en el inventario de Ansible que se sube dentro del contenedor.
+
 ### Despliegue
 0. Clonar repo:
   ```bash
