@@ -1,11 +1,8 @@
-alertas = [{'rango':'100'}]
+alertas = [{'rango':'100'}, {'rango':'200'}]
 
 def alert(ip, puntuaciones):
-    i = 0
-    while i < len(alertas):
-        if str(puntuaciones) < alertas[i]['rango']:
-            alerta = [{'ip': ip}, {'tiempo': alertas[i]['tiempo']}]
+    if str(puntuaciones) > alertas[0]['rango'] and str(puntuaciones) < alertas[1]['rango']:
+            alerta = "Ip: " + ip +" en el rango de alerta"
             return alerta
-        i += 1
-
-    return 0
+    else:
+        return 0
