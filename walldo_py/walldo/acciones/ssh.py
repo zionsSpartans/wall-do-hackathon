@@ -15,6 +15,8 @@ from walldodb.walldodb_main import update_ban
 # Ejecucion del script auxiliar
 def baneo_ssh(ip_toban):
     hosts_path = "/walldo/hosts"
+    print(ip_toban)
+    print(str(ip_toban.__class__))
     torun = subprocess.Popen(["/walldo/acciones/run_ban_ssh.sh", hosts_path, ip_toban], stdout=subprocess.PIPE)
     output, err = torun.communicate()
     # Print output ejecucion ansible

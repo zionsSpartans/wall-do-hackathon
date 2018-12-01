@@ -39,6 +39,7 @@ def recoje_puntuaciones():
         if alert(ip, str(puntuaciones)) == 0:
             ban = baneos(ip, str(puntuaciones))
             print('baneo')
+            print(ban)
             accion_baneo_ssh(ban)
         else:
             alerta = alert(ip, str(puntuaciones))
