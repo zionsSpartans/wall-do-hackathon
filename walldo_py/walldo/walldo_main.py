@@ -17,6 +17,7 @@ def proceso1():
 def proceso2():
     while True:
         recoje_puntuaciones()
+        time.sleep(180)
 
 
 def main():
