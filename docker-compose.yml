@@ -81,6 +81,8 @@ services:
     build:
       context: walldo_py
     user: "1000"
+    volumes:
+      - ./walldo_py/walldo/whitelist:/walldo/whitelist:ro
     networks:
       - walldo
     depends_on:
