@@ -10,7 +10,8 @@ Basándose en la información recopilada de los logs en los diferentes hosts se 
 Tras asignar una puntuación, en base a esta se determinan las acciones a realizar, que pueden ir desde una alerta hasta un baneo permanente.
 
 ## Video presentación en Cybercamp 2018
-[![Presentación Wall-do @ Cybercamp18](https://img.youtube.com/vi/-TpUf4Bp5xw/0.jpg)](https://youtu.be/-TpUf4Bp5xw?t=2295)
+[![Presentación inicial Wall-do @ Cybercamp18](https://img.youtube.com/vi/-TpUf4Bp5xw/0.jpg)](https://www.youtube.com/watch?v=DeDDFs807nY&t=601s&ab_channel=INCIBE)
+[![Presentación final  Wall-do @ Cybercamp18](https://img.youtube.com/vi/-TpUf4Bp5xw/0.jpg)](https://youtu.be/6-v_8ZXpSBw?t=9447)
 
 ## Deploy Wall-do
 ### Dependencias
